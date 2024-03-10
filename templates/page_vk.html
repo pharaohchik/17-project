@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title> page_vk </title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/page_vk.css') }}" rel="stylesheet"/>
+</head>
+<body>
+
+    <div class="main_box">
+        {% for post in posts %}
+            <div class="post">
+                <div class="title">
+                    <div class="mini_image"><img class="mini_title" src="{{ url_for('static', filename='image/title.jpg') }}"></div>
+                    <h2>{{ post.name_author }}</h2>
+                </div>
+                <p>{{ post.text }}</p>
+                <img class="image" src="{{ url_for('static', filename='image/' + post.image) }}" alt="картинка">
+                <div class="like">
+                    <p>{{ post.amount_likes }} likes</p>
+                    <div class="cool">
+                        <button><img class="img_like" src="{{ url_for('static', filename='image/heart.png') }}"></button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
